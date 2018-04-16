@@ -1,0 +1,29 @@
+{
+  "name": "colouref",
+  "version": "1.0.0",
+  "description": "A colour reference website",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ben-yip/colouref.git"
+  },
+  "keywords": [
+    "colour"
+  ],
+  "author": "BenYip",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ben-yip/colouref/issues"
+  },
+  "homepage": "https://github.com/ben-yip/colouref#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "clipboard": "^2.0.0",
+    "ejs": "^2.5.8",
+    "jquery": "^2.2.4",
+    "normalize.css": "^8.0.0"
+  }
+}

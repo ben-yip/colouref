@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="author" content="BenYip, endless_leaf@163.com">
+    <title>日本传统色彩</title>
+    <!--<link rel="stylesheet" href="../node_modules/normalize.css/normalize.css">-->
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <style>
+        .margin-bottom-none {
+            margin-bottom: 0 !important;
+        }
+
+        .color {
+            padding-top: 14px;
+            padding-bottom: 14px;
+            text-align: center;
+            line-height: 36px;
+            font-size: 20px;
+            color: #eee;
+            text-shadow: 0 0 3px #999;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-offset-1 col-lg-10">
+                <h1>日本传统色系 | <br> Japan Traditional Colours</h1>
+                <p>日本传统色系指的是日本古典文学里经常采用颜色。</p>
+                <p>这些颜色常被用于和服或其他日本传统艺术和手工艺中。——维基百科</p>
+                <p> 一般地说，日本大约是在平安时代（公元764~1185）达到了其传统艺术（特别是诗词和文学）的顶峰。
+                    我们会发现，很多日本颜色的名称就是在平安时代被赋予的。
+                    日语中，颜色也象别的语言一样，结合上一些名词，便被赋予了另外的意义。</p>
+                <div class="hint">点击下面的色块，即可把HEX颜色值复制到剪贴板。
+                    | Click on the color blocks below to get the hex to the clipboard.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row" id="color-wrapper">
+
+        <div class="col-sm-4 col-md-3 col-lg-2 color" style="background-color: #000; ">
+            <div class="name">颜色名</div>
+            <div class="hex">HEX值</div>
+        </div>
+
+    </div>
+</div>
+
+<!--<script src="../node_modules/jquery/dist/jquery.min.js"></script>-->
+<script src="../node_modules/ejs/ejs.min.js"></script>
+<script src="../node_modules/clipboard/dist/clipboard.min.js"></script>
+
+<script type="text/template" id="color-block">
+    <% for(let i = 0; i < data.length; i++) { %>
+    <div class="col-sm-4 col-md-3 col-lg-2 color"
+         data-clipboard-text="<%= data[i].hex %>"
+         style="background-color: <%= data[i].hex %>;">
+        <div class="name"><%= data[i].name %></div>
+        <div class="hex"><%= data[i].hex %></div>
+    </div>
+    <% } %>
+</script>
+<script src="jpcolor-data.js"></script>
+<script>
+    /**
+     * render data and the template
+     */
+    document.getElementById('color-wrapper').innerHTML = ejs.render(
+        document.getElementById('color-block').innerHTML,
+        {data: data}
+    );
+
+    /**
+     * click to copy
+     */
+    new ClipboardJS('.color');
+</script>
+</body>
+</html>
