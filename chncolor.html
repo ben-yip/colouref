@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="author" content="BenYip, endless_leaf@163.com">
+    <title>中国传统色谱</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/primer-tooltips/build/build.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-offset-1 col-lg-10">
+                <h1>中国传统色谱 | <br> China Traditional Colours</h1>
+                <p>
+                    中国的传统色彩文化是中国传统文化的重要组成部分。中华民族是世界上最早懂得使用色彩的民族之一，
+                    很早就确立了色彩结构，以黄、青、赤、黑、白五色为正色，与五行中的土、木、火、水、金相联系，
+                    把中国人关于自然宇宙、伦理、哲学等多种观念融入色彩中，形成独树一帜的中国色彩文化。
+                </p>
+                <p>
+                    中国传统色彩是各个时期的政治、经济、社会生活、民俗风情，以及思想观念和审美情趣的反映，内涵丰富，应用范围极其广泛。
+                    中国的建筑、服饰、绘画、雕刻、瓷器、漆器、剪纸等传统文化的方方面面，都离不开色彩的装饰。</p>
+                <div class="hint">点击下面的色块，即可把 HEX 颜色值复制到剪贴板。
+                    | Click on the color blocks below to get the hex to the clipboard.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row" id="color-wrapper">
+
+        <div class="color col-sm-4 col-md-3 col-lg-2
+                    tooltipped tooltipped-n tooltipped-no-delay"
+             data-clipboard-text="#000"
+             aria-label="#000"
+             style="background-color: #000; ">
+            <div class="name">颜色名</div>
+            <div class="hex">HEX值</div>
+        </div>
+
+    </div>
+</div>
+
+<!--<script src="../node_modules/jquery/dist/jquery.min.js"></script>-->
+<script src="node_modules/ejs/ejs.min.js"></script>
+<script src="node_modules/clipboard/dist/clipboard.min.js"></script>
+
+<script type="text/template" id="color-block">
+    <% for(let i = 0; i < data.length; i++) { %>
+    <div class="color col-sm-4 col-md-3 col-lg-2
+                tooltipped tooltipped-n tooltipped-no-delay"
+         data-clipboard-text="<%= data[i].hex %>"
+         aria-label="<%= data[i].hex %>"
+         style="background-color: <%= data[i].hex %>;">
+        <div class="name"><%= data[i].name %></div>
+        <div class="hex"><%= data[i].hex %></div>
+    </div>
+    <% } %>
+</script>
+<script src="chn-color-526.js"></script>
+<script>
+    /**
+     * render data and the template
+     */
+    document.getElementById('color-wrapper').innerHTML = ejs.render(
+        document.getElementById('color-block').innerHTML,
+        {data: data}
+    );
+
+    /**
+     * click to copy
+     */
+    new ClipboardJS('.color');
+</script>
+</body>
+</html>
