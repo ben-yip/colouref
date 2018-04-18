@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="author" content="BenYip, endless_leaf@163.com">
     <title>日本传统色彩</title>
-    <!--<link rel="stylesheet" href="../node_modules/normalize.css/normalize.css">-->
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/primer-tooltips/build/build.css">
     <style>
         .margin-bottom-none {
             margin-bottom: 0 !important;
@@ -48,7 +48,11 @@
 <div class="container">
     <div class="row" id="color-wrapper">
 
-        <div class="col-sm-4 col-md-3 col-lg-2 color" style="background-color: #000; ">
+        <div class="color col-sm-4 col-md-3 col-lg-2
+                    tooltipped tooltipped-n tooltipped-no-delay"
+             data-clipboard-text="#000"
+             aria-label="#000"
+             style="background-color: #000; ">
             <div class="name">颜色名</div>
             <div class="hex">HEX值</div>
         </div>
@@ -62,8 +66,10 @@
 
 <script type="text/template" id="color-block">
     <% for(let i = 0; i < data.length; i++) { %>
-    <div class="col-sm-4 col-md-3 col-lg-2 color"
+    <div class="color col-sm-4 col-md-3 col-lg-2
+                tooltipped tooltipped-n tooltipped-no-delay"
          data-clipboard-text="<%= data[i].hex %>"
+         aria-label="<%= data[i].hex %>"
          style="background-color: <%= data[i].hex %>;">
         <div class="name"><%= data[i].name %></div>
         <div class="hex"><%= data[i].hex %></div>
