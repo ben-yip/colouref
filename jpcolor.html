@@ -7,24 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="author" content="BenYip, endless_leaf@163.com">
     <title>日本传统色彩</title>
-    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../node_modules/primer-tooltips/build/build.css">
-    <style>
-        .margin-bottom-none {
-            margin-bottom: 0 !important;
-        }
-
-        .color {
-            padding-top: 14px;
-            padding-bottom: 14px;
-            text-align: center;
-            line-height: 36px;
-            font-size: 20px;
-            color: #eee;
-            text-shadow: 0 0 3px #999;
-            cursor: pointer;
-        }
-    </style>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/primer-tooltips/build/build.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="jumbotron">
@@ -37,7 +22,7 @@
                 <p> 一般地说，日本大约是在平安时代（公元764~1185）达到了其传统艺术（特别是诗词和文学）的顶峰。
                     我们会发现，很多日本颜色的名称就是在平安时代被赋予的。
                     日语中，颜色也象别的语言一样，结合上一些名词，便被赋予了另外的意义。</p>
-                <div class="hint">点击下面的色块，即可把HEX颜色值复制到剪贴板。
+                <div class="hint">点击下面的色块，即可把 HEX 颜色值复制到剪贴板。
                     | Click on the color blocks below to get the hex to the clipboard.
                 </div>
             </div>
@@ -61,8 +46,8 @@
 </div>
 
 <!--<script src="../node_modules/jquery/dist/jquery.min.js"></script>-->
-<script src="../node_modules/ejs/ejs.min.js"></script>
-<script src="../node_modules/clipboard/dist/clipboard.min.js"></script>
+<script src="node_modules/ejs/ejs.min.js"></script>
+<script src="node_modules/clipboard/dist/clipboard.min.js"></script>
 
 <script type="text/template" id="color-block">
     <% for(let i = 0; i < data.length; i++) { %>
@@ -76,7 +61,7 @@
     </div>
     <% } %>
 </script>
-<script src="jpcolor-data.js"></script>
+<script src="jp-color-data-470.js"></script>
 <script>
     /**
      * render data and the template

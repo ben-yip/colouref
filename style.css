@@ -1,0 +1,10 @@
+.color {
+    padding-top: 14px;
+    padding-bottom: 14px;
+    text-align: center;
+    line-height: 36px;
+    font-size: 20px;
+    color: #eee;
+    text-shadow: 0 0 3px #999;
+    cursor: pointer;
+}
